@@ -3,7 +3,7 @@ package fs
 import (
 	"bufio"
 	"fmt"
-	"log"
+	"main/Errors"
 	"main/functions"
 	"os"
 	"strings"
@@ -21,9 +21,7 @@ func FsTunrOn() {
 	}
 	//Here is how we choose banner
 	banner := string(args[1])
-	if banner != "shadow" && banner != "standard" && banner != "thinkertoy" {
-		log.Fatal("banner: Inexisting banner ")
-	}
+	Errors.Banner(banner)
 	banner = banner + ".txt"
 	//Here this tab is How we separte our Strings by a new line
 	tab := strings.Split(word, "\\n")

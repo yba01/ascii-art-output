@@ -2,29 +2,22 @@ package output
 
 import (
 	"bufio"
-	"fmt"
+	"main/Errors"
 	"main/functions"
 	"os"
 	"strings"
 )
 
-func Error() {
-	fmt.Println("Usage: go run . [OPTION] [STRING] [BANNER]\n\nEX: go run . --output=<fileName.txt> something standard")
-	return
-}
 func OutputTurnOn() {
 	args := os.Args[1:]
-	if args[0][0:9] != "--output=" {
-		Error()
+	if len(args) != 3 {
+		Errors.Output()
 	}
 	if args[0][len(args[0])-4:] != ".txt" {
-		Error()
+		Errors.Output()
 	}
 	banner := args[2]
-	if banner != "shadow" && banner != "standard" && banner != "thinkertoy" {
-		fmt.Println("banner: Inexisting banner ")
-		return
-	}
+	Errors.Banner(banner)
 	content := ""
 	banner = banner + ".txt"
 	filename := args[0][9:]

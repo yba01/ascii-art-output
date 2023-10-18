@@ -10,7 +10,6 @@ import (
 
 func SimpleTurnOn() {
 	args := os.Args[1:]
-
 	word := string(args[0])
 	if word == "" {
 		return
